@@ -1,0 +1,33 @@
+{
+  "name": "@sotaoi/omni",
+  "private": false,
+  "version": "0.9.2",
+  "description": "",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "bootstrap": "npm install --force --no-audit --no-fund",
+    "bootstrap:prod": "npm install --production --force --no-audit --no-fund",
+    "build:somni": "node ./scripts/build/build-somni",
+    "deploy:somni": "node ./scripts/deploy/deploy-somni",
+    "clean:bootstrap": "node ./scripts/clean/clean-bootstrap",
+    "clean:somni": "node ./scripts/clean/clean-somni"
+  },
+  "peerDependencies": {
+    "@sotaoi/config": "0.9.6"
+  },
+  "devDependencies": {
+    "@sotaoi/omni": "file:./",
+    "@sotaoi/config": "file:../sotaoi-config",
+    "@types/lodash": "^4.14.171",
+    "@types/node": "^14",
+    "@types/react": "^16.9"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.4",
+    "lodash": "^4.17.21",
+    "ts-node": "^8.10.2",
+    "typescript": "4.1.5"
+  }
+}
