@@ -16,5 +16,5 @@
     "isolatedModules": true,
     "noEmitOnError": true
   },
-  "exclude": ["./deployment", "./scripts", "./tmp.deployment", "./**/*.js"]
+  "exclude": ["./deployment", "./scripts", "./**/*.js"]
 }

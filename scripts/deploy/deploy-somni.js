@@ -5,7 +5,7 @@ const { buildSomniRoutine } = require('@sotaoi/omni/scripts/routines/build-somni
 const main = async () => {
   //
 
-  await buildSomniRoutine(true);
+  await buildSomniRoutine();
 
   //
 };
