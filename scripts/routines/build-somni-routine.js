@@ -4,10 +4,6 @@ const { Helper } = require('@sotaoi/omni/helper');
 const { execSync } = require('child_process');
 
 const buildSomniRoutine = async () => {
-  if (typeof deploy !== 'boolean') {
-    throw new Error('Bad deployment flag');
-  }
-
   //
 
   fs.rmdirSync(path.resolve('./deployment'), { recursive: true });
