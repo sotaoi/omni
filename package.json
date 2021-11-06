@@ -20,7 +20,6 @@
   },
   "scripts": {
     "bootstrap": "npm install --force --no-audit --no-fund",
-    "bootstrap:prod": "npm install --production --force --no-audit --no-fund",
     "deploy:somni": "node ./scripts/deploy/deploy-somni",
     "clean:bootstrap": "node ./scripts/clean/clean-bootstrap",
     "clean:somni": "node ./scripts/clean/clean-somni"
