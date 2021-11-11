@@ -19,7 +19,7 @@
     "node": "14.x"
   },
   "scripts": {
-    "bootstrap": "npm install --legacy-peer-deps --force --no-audit --no-fund",
+    "bootstrap": "npm install --no-optional --legacy-peer-deps --force --no-audit --no-fund  --loglevel error",
     "deploy:somni": "node ./scripts/deploy/deploy-somni",
     "clean:bootstrap": "node ./scripts/clean/clean-bootstrap",
     "clean:somni": "node ./scripts/clean/clean-somni"
