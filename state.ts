@@ -1,6 +1,11 @@
-import type { AppInfo } from '@sotaoi/config/app-info';
 import React from 'react';
 import { AuthRecord } from '@sotaoi/omni/artifacts';
+
+interface AppInfoInterface {
+  [key: string]: string;
+  bundleUid: string;
+  isMasterBundle: string;
+}
 
 class State {
   public 'app.meta.title': string;
@@ -51,7 +56,10 @@ class AppPocket implements AppPocketInterface {
     appMaintenance: boolean;
   };
 
-  constructor(appPocket: undefined | null | { [key: string]: any }, appInfo: AppInfo) {
+  constructor(
+    appPocket: undefined | null | { [key: string]: any },
+    appInfo: { [key: string]: string; bundleUid: string; isMasterBundle: string },
+  ) {
     appPocket = JSON.parse(JSON.stringify(appPocket || {}));
     const defaultAppPocket = AppPocket.getDefaultAppPocket(appInfo);
     this.bundleState = {
@@ -79,7 +87,9 @@ class AppPocket implements AppPocketInterface {
     };
   }
 
-  public static getDefaultAppPocket(appInfo: AppInfo): AppPocketInterface {
+  public static getDefaultAppPocket<
+    AppInfo extends AppInfoInterface = { [key: string]: string; bundleUid: string; isMasterBundle: string },
+  >(appInfo: AppInfo): AppPocketInterface {
     return {
       bundleState: {
         bundleUid: appInfo.bundleUid,
@@ -112,4 +122,4 @@ interface LayoutProps {
 }
 
 export { AppPocket, State, Lang, Seed };
-export type { AppInfo, AppPocketInterface, RouterConfig, RoutesConfig, LayoutProps, RenderComponent };
+export type { AppInfoInterface, AppPocketInterface, RouterConfig, RoutesConfig, LayoutProps, RenderComponent };

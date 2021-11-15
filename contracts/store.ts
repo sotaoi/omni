@@ -1,4 +1,4 @@
-import { Lang, State, AppInfo } from '@sotaoi/omni/state';
+import { Lang, State, AppInfoInterface } from '@sotaoi/omni/state';
 import { AuthRecord } from '@sotaoi/omni/artifacts';
 import { StoreCreator, Store as ReduxStore } from '@sotaoi/omni/definitions/redux';
 import { InputValidator } from '@sotaoi/omni/contracts/input-validator';
@@ -7,7 +7,7 @@ import { LocalMemory } from '@sotaoi/omni/contracts/local-memory';
 type StoreType = { getState: () => { [key: string]: any }; dispatch: any; subscribe: any } | ReduxStore;
 
 abstract class Store {
-  protected appInfo: AppInfo;
+  protected appInfo: AppInfoInterface;
   protected apiUrl: string;
   protected createStore: StoreCreator;
   protected inputValidator: InputValidator;
@@ -17,7 +17,7 @@ abstract class Store {
   protected initialState: State;
 
   constructor(
-    appInfo: AppInfo,
+    appInfo: AppInfoInterface,
     apiUrl: string,
     createStore: StoreCreator,
     inputValidator: InputValidator,
@@ -60,7 +60,7 @@ abstract class Store {
   abstract getTranslations(): { [key: string]: { [key: string]: string } };
   abstract subscribe(callback: () => void): () => void;
   abstract getState(): State;
-  abstract getAppInfo(): AppInfo;
+  abstract getAppInfo(): AppInfoInterface;
   abstract getApiUrl(): string;
   abstract driverDomainSignature(): string;
   abstract mdriverDomainSignature(): string;

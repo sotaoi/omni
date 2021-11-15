@@ -25,11 +25,10 @@
     "clean:somni": "node ./scripts/clean/clean-somni"
   },
   "peerDependencies": {
-    "@sotaoi/config": "0.9.6"
+    "@sotaoi/config": "0.9.7"
   },
   "devDependencies": {
     "@sotaoi/omni": "file:./",
-    "@sotaoi/config": "file:../sotaoi-config",
     "@types/lodash": "^4.14.171",
     "@types/node": "^14",
     "@types/react": "^16.9",
