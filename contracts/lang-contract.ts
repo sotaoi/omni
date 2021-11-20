@@ -1,7 +1,7 @@
-import { Store } from '@sotaoi/omni/contracts/store';
+import { StoreContract } from '@sotaoi/omni/contracts/store-contract';
 
 abstract class Lang {
-  abstract init(store: () => Store): Promise<void>;
+  abstract init(store: () => StoreContract): Promise<void>;
   abstract isMultilang(): boolean;
   abstract useTranslation<UseTranslationResponse>(): UseTranslationResponse;
 }

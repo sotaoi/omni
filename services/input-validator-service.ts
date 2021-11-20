@@ -1,4 +1,8 @@
-import type { InputValidatorConfig, InputValidationResult, RequesterFn } from '@sotaoi/omni/contracts/input-validator';
+import type {
+  InputValidatorConfig,
+  InputValidationResult,
+  RequesterFn,
+} from '@sotaoi/omni/contracts/input-validator-contract';
 import type { ErrorResult } from '@sotaoi/omni/transactions';
 // import type { StringInput } from '@sotaoi/omni/input/string-input';
 // import type { CollectionInput } from '@sotaoi/omni/input/collection-input';
@@ -6,7 +10,7 @@ import type { ErrorResult } from '@sotaoi/omni/transactions';
 import type { BaseInput, FieldValidation, FormValidations } from '@sotaoi/omni/input/base-input';
 import type { DatabaseConnection } from '@sotaoi/omni/definitions/mdriver';
 
-import { InputValidator } from '@sotaoi/omni/contracts/input-validator';
+import { InputValidator } from '@sotaoi/omni/contracts/input-validator-contract';
 import { Helper } from '@sotaoi/omni/helper';
 import _ from 'lodash';
 import { OmniBaseField } from '@sotaoi/omni/omni-base-field';

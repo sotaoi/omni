@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { buildSomniRoutine } = require('@sotaoi/omni/scripts/routines/build-somni-routine');
+const { buildSomniRoutine } = require('@sotaoi/omni/console/commands/routines/build-somni-routine');
 
 const main = async () => {
   //

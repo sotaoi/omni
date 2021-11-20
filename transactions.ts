@@ -1,5 +1,5 @@
 import { Artifacts, AuthRecord, RecordEntry, Artifact, RecordRef } from '@sotaoi/omni/artifacts';
-import { Notification } from '@sotaoi/omni/contracts/notification';
+import { Notification } from '@sotaoi/omni/contracts/notification-contract';
 import { SweetAlertResult, Awaited } from '@sotaoi/omni/definitions/notification-interface';
 import { ErrorCode } from '@sotaoi/omni/errors';
 

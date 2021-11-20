@@ -12,10 +12,10 @@ interface SocketClass {
   on(event: string, callback: SocketListener): void;
 }
 
-abstract class Socket {
+abstract class SocketContract {
   abstract connect(url: string, options: SocketOptions): SocketClass;
   abstract io(): SocketClass;
 }
 
-export { Socket };
+export { SocketContract };
 export type { SocketListener, SocketOptions, SocketClass };
