@@ -1,7 +1,7 @@
 {
   "name": "@sotaoi/omni",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "deploymentScheme": {
     "init": "./signal deploy:somni",

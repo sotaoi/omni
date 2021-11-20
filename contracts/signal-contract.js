@@ -75,7 +75,12 @@ class SignalContract {
     typeof description !== 'string' && (description = 'Missing description...');
     description = '-->  ' + description;
     typeof positional !== 'function' && (positional = () => null);
-    privatesc[this.uid].yargs = privatesc[this.uid].yargs.command(signature, description, positional, handler);
+    privatesc[this.uid].yargs = privatesc[this.uid].yargs.command(signature, description, positional, async (argv) => {
+      console.log(`Signal running command "${signature}"...`);
+      await privatesc[this.uid].integrity(argv);
+      await handler(argv);
+      console.log(`Signal command "${signature}" done!`);
+    });
     return this;
   }
 
@@ -85,43 +90,121 @@ class SignalContract {
         'install',
         '-->  Missing description',
         () => null,
-        (argv) => this.install(argv),
+        async (argv) => {
+          try {
+            await privatesc[this.uid].integrity(argv);
+
+            await this.install(argv);
+          } catch (err) {
+            console.error(err);
+          }
+        },
       )
       .command(
         'prepare',
         '-->  Missing description',
         () => null,
-        (argv) => this.prepare(argv),
+        async (argv) => {
+          try {
+            await privatesc[this.uid].integrity(argv);
+
+            await this.prepare(argv);
+          } catch (err) {
+            console.error(err);
+          }
+        },
       )
       .command(
         'load',
         '-->  Missing description',
         () => null,
-        (argv) => this.load(argv),
+        async (argv) => {
+          try {
+            await privatesc[this.uid].integrity(argv);
+
+            await this.load(argv);
+          } catch (err) {
+            console.error(err);
+          }
+        },
       )
       .command(
         'bootstrap',
         '-->  Missing description',
         () => null,
-        (argv) => this.bootstrap(argv),
+        async (argv) => {
+          try {
+            await privatesc[this.uid].integrity(argv);
+
+            await this.bootstrap(argv);
+          } catch (err) {
+            console.error(err);
+          }
+        },
       )
       .command(
         'config',
         '-->  Missing description',
         () => null,
-        (argv) => this.config(argv),
+        async (argv) => {
+          try {
+            await privatesc[this.uid].integrity(argv);
+
+            await this.config(argv);
+          } catch (err) {
+            console.error(err);
+          }
+        },
       )
       .command(
         'setup',
         '-->  Missing description',
         () => null,
-        (argv) => this.setup(argv),
+        async (argv) => {
+          try {
+            await privatesc[this.uid].integrity(argv);
+
+            await this.setup(argv);
+          } catch (err) {
+            console.error(err);
+          }
+        },
       )
       .command(
         'init',
         '-->  Missing description',
         () => null,
-        (argv) => this.init(argv),
+        async (argv) => {
+          try {
+            await privatesc[this.uid].integrity(argv);
+
+            await this.init(argv);
+          } catch (err) {
+            console.error(err);
+          }
+        },
+      )
+      .command(
+        'reload',
+        '--> Missing description',
+        () => null,
+        async (argv) => {
+          try {
+            await privatesc[this.uid].integrity(argv);
+
+            console.log(`Signal reloading "${this.packageJson.name || '???'}"...`);
+            await this.install(argv);
+            await this.prepare(argv);
+            await this.load(argv);
+            await this.bootstrap(argv);
+            await this.config(argv);
+            await this.setup(argv);
+            await this.init(argv);
+            console.log(`Signal "${this.packageJson.name || '???'}" reload done!`);
+          } catch (err) {
+            console.error(err);
+          }
+        },
       )
       .strictCommands()
       .version(this.packageJson.version)
@@ -135,31 +218,52 @@ class SignalContract {
   }
 
   install(argv) {
-    return privatesc[this.uid].install(argv);
+    console.log(`Signal installing "${this.packageJson.name || '???'}"...`);
+    const result = privatesc[this.uid].install(argv);
+    console.log(`Signal "${this.packageJson.name || '???'}" install done!`);
+    return result;
   }
 
   prepare(argv) {
-    return privatesc[this.uid].prepare(argv);
+    console.log(`Signal preparing "${this.packageJson.name || '???'}"...`);
+    const result = privatesc[this.uid].prepare(argv);
+    console.log(`Signal "${this.packageJson.name || '???'}" prepare done!`);
+    return result;
   }
 
   load(argv) {
-    return privatesc[this.uid].load(argv);
+    console.log(`Signal loading "${this.packageJson.name || '???'}"...`);
+    const result = privatesc[this.uid].load(argv);
+    console.log(`Signal "${this.packageJson.name || '???'}" prepare done!`);
+    return result;
   }
 
   bootstrap(argv) {
-    return privatesc[this.uid].bootstrap(argv);
+    console.log(`Signal bootstrapping "${this.packageJson.name || '???'}"...`);
+    const result = privatesc[this.uid].bootstrap(argv);
+    console.log(`Signal "${this.packageJson.name || '???'}" bootstrap done!`);
+    return result;
   }
 
   config(argv) {
-    return privatesc[this.uid].config(argv);
+    console.log(`Signal config "${this.packageJson.name || '???'}"...`);
+    const result = privatesc[this.uid].config(argv);
+    console.log(`Signal "${this.packageJson.name || '???'}" config done!`);
+    return result;
   }
 
   setup(argv) {
-    return privatesc[this.uid].setup(argv);
+    console.log(`Signal setting up "${this.packageJson.name || '???'}"...`);
+    const result = privatesc[this.uid].setup(argv);
+    console.log(`Signal "${this.packageJson.name || '???'}" setup done!`);
+    return result;
   }
 
   init(argv) {
-    return privatesc[this.uid].init(argv);
+    console.log(`Signal init "${this.packageJson.name || '???'}"...`);
+    const result = privatesc[this.uid].init(argv);
+    console.log(`Signal "${this.packageJson.name || '???'}" init done!`);
+    return result;
   }
 }
 
