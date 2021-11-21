@@ -13,12 +13,10 @@ const integrity = async () => {
 };
 
 const install = async () => {
-  console.log('Signal installing @sotaoi/omni...');
   execSync(`npm install --no-optional --legacy-peer-deps --force --no-audit --no-fund  --loglevel error`, {
     cwd: path.resolve('./'),
     stdio: 'inherit',
   });
-  console.log('Signal @sotaoi/omni install done!');
 };
 
 const prepare = async () => {

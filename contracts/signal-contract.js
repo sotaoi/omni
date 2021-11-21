@@ -76,10 +76,10 @@ class SignalContract {
     description = '-->  ' + description;
     typeof positional !== 'function' && (positional = () => null);
     privatesc[this.uid].yargs = privatesc[this.uid].yargs.command(signature, description, positional, async (argv) => {
-      console.log(`Signal running command "${signature}"...`);
+      console.info(`Signal running command "${signature}"...`);
       await privatesc[this.uid].integrity(argv);
       await handler(argv);
-      console.log(`Signal command "${signature}" done!`);
+      console.info(`Signal command "${signature}" done!`);
     });
     return this;
   }
@@ -192,7 +192,7 @@ class SignalContract {
           try {
             await privatesc[this.uid].integrity(argv);
 
-            console.log(`Signal reloading "${this.packageJson.name || '???'}"...`);
+            console.info(`Signal reloading "${this.packageJson.name || '???'}"...`);
             await this.install(argv);
             await this.prepare(argv);
             await this.load(argv);
@@ -200,7 +200,7 @@ class SignalContract {
             await this.config(argv);
             await this.setup(argv);
             await this.init(argv);
-            console.log(`Signal "${this.packageJson.name || '???'}" reload done!`);
+            console.info(`Signal "${this.packageJson.name || '???'}" reload done!`);
           } catch (err) {
             console.error(err);
           }
@@ -218,51 +218,51 @@ class SignalContract {
   }
 
   install(argv) {
-    console.log(`Signal installing "${this.packageJson.name || '???'}"...`);
+    console.info(`Signal installing "${this.packageJson.name || '???'}"...`);
     const result = privatesc[this.uid].install(argv);
-    console.log(`Signal "${this.packageJson.name || '???'}" install done!`);
+    console.info(`Signal "${this.packageJson.name || '???'}" install done!`);
     return result;
   }
 
   prepare(argv) {
-    console.log(`Signal preparing "${this.packageJson.name || '???'}"...`);
+    console.info(`Signal preparing "${this.packageJson.name || '???'}"...`);
     const result = privatesc[this.uid].prepare(argv);
-    console.log(`Signal "${this.packageJson.name || '???'}" prepare done!`);
+    console.info(`Signal "${this.packageJson.name || '???'}" prepare done!`);
     return result;
   }
 
   load(argv) {
-    console.log(`Signal loading "${this.packageJson.name || '???'}"...`);
+    console.info(`Signal loading "${this.packageJson.name || '???'}"...`);
     const result = privatesc[this.uid].load(argv);
-    console.log(`Signal "${this.packageJson.name || '???'}" prepare done!`);
+    console.info(`Signal "${this.packageJson.name || '???'}" prepare done!`);
     return result;
   }
 
   bootstrap(argv) {
-    console.log(`Signal bootstrapping "${this.packageJson.name || '???'}"...`);
+    console.info(`Signal bootstrapping "${this.packageJson.name || '???'}"...`);
     const result = privatesc[this.uid].bootstrap(argv);
-    console.log(`Signal "${this.packageJson.name || '???'}" bootstrap done!`);
+    console.info(`Signal "${this.packageJson.name || '???'}" bootstrap done!`);
     return result;
   }
 
   config(argv) {
-    console.log(`Signal config "${this.packageJson.name || '???'}"...`);
+    console.info(`Signal config "${this.packageJson.name || '???'}"...`);
     const result = privatesc[this.uid].config(argv);
-    console.log(`Signal "${this.packageJson.name || '???'}" config done!`);
+    console.info(`Signal "${this.packageJson.name || '???'}" config done!`);
     return result;
   }
 
   setup(argv) {
-    console.log(`Signal setting up "${this.packageJson.name || '???'}"...`);
+    console.info(`Signal setting up "${this.packageJson.name || '???'}"...`);
     const result = privatesc[this.uid].setup(argv);
-    console.log(`Signal "${this.packageJson.name || '???'}" setup done!`);
+    console.info(`Signal "${this.packageJson.name || '???'}" setup done!`);
     return result;
   }
 
   init(argv) {
-    console.log(`Signal init "${this.packageJson.name || '???'}"...`);
+    console.info(`Signal init "${this.packageJson.name || '???'}"...`);
     const result = privatesc[this.uid].init(argv);
-    console.log(`Signal "${this.packageJson.name || '???'}" init done!`);
+    console.info(`Signal "${this.packageJson.name || '???'}" init done!`);
     return result;
   }
 }
