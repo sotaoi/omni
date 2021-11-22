@@ -3,7 +3,10 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const integrity = async () => {
-  if (fs.existsSync(path.resolve('./node_modules/@sotaoi/omni'))) {
+  if (
+    fs.existsSync(path.resolve('./node_modules/@sotaoi/omni')) &&
+    fs.existsSync(path.resolve('./node_modules/@sotaoi/signal'))
+  ) {
     return;
   }
   execSync(`npm install --no-optional --legacy-peer-deps --force --no-audit --no-fund  --loglevel error`, {
