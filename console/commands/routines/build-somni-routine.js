@@ -24,7 +24,7 @@ const buildSomniRoutine = async () => {
 
   execSync('npx tsc', { cwd: path.resolve('./deployment'), stdio: 'inherit' });
   fs.unlinkSync(path.resolve('./deployment/tsconfig.json'));
-  execSync('./signal install', { cwd: path.resolve('./deployment'), stdio: 'inherit' });
+  execSync('bash ./signal install', { cwd: path.resolve('./deployment'), stdio: 'inherit' });
 
   Helper.iterateRecursiveSync(
     fs,
