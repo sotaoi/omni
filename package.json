@@ -1,7 +1,7 @@
 {
   "name": "@sotaoi/omni",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "deploymentScheme": {
     "init": "./signal deploy:somni",
@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@sotaoi/omni": "file:./",
+    "@sotaoi/signal": "1.0.0",
     "@babel/runtime": "^7.8.4",
     "lodash": "^4.17.21",
     "yargs": "^16.1.1"
