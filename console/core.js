@@ -15,6 +15,14 @@ const integrity = async () => {
   });
 };
 
+const deploymentKeys = async () => {
+  // do nothing
+};
+
+const deploymentCentral = async () => {
+  // do nothing
+};
+
 const install = async () => {
   execSync(`npm install --no-optional --legacy-peer-deps --force --no-audit --no-fund  --loglevel error`, {
     cwd: path.resolve('./'),
@@ -46,4 +54,15 @@ const init = async () => {
   // do nothing
 };
 
-module.exports = { integrity, install, prepare, load, bootstrap, config, setup, init };
+module.exports = {
+  integrity,
+  deploymentKeys,
+  deploymentCentral,
+  install,
+  prepare,
+  load,
+  bootstrap,
+  config,
+  setup,
+  init,
+};
