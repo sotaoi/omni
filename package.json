@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@sotaoi/omni": "file:./",
-    "@sotaoi/signal": "1.0.3",
+    "@sotaoi/signal": "1.0.5",
     "@babel/runtime": "^7.8.4",
     "lodash": "^4.17.21",
     "yargs": "^16.1.1"
