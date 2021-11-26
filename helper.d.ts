@@ -4,14 +4,14 @@ type TransformerFn = (
   item: any,
   prefix: string,
   iterate: (item: any, prefix: string, transformer: TransformerFn, prop: string) => any,
-  prop: string,
+  prop: string
 ) => any;
 
 type TransformerAsyncFn = (
   item: any,
   prefix: string,
   iterate: (item: any, prefix: string, transformer: TransformerFn, prop: string) => any,
-  prop: string,
+  prop: string
 ) => Promise<any>;
 
 interface BundleJson {
@@ -30,6 +30,8 @@ interface FileInfo {
 }
 
 class Helper {
+  public static isConsole(): boolean;
+
   public static initialBundleJson(): BundleJson;
 
   public static async pause(milliseconds: number): Promise<void>;
@@ -45,7 +47,7 @@ class Helper {
   public static async iterateAsync(
     obj: { [key: string]: any },
     stack: string,
-    transformer: TransformerAsyncFn,
+    transformer: TransformerAsyncFn
   ): Promise<any>;
 
   public static isJson(str: string): boolean;
@@ -77,7 +79,7 @@ class Helper {
     path: any,
     src: string,
     callback: (item: string) => void,
-    exclude: string[] = [],
+    exclude: string[] = []
   ): void;
 
   public static readdirSyncRecur(
@@ -85,7 +87,7 @@ class Helper {
     path: any,
     dir: string,
     exclude: string[] = [],
-    files: FileInfo[] = [],
+    files: FileInfo[] = []
   ): FileInfo[];
 }
 

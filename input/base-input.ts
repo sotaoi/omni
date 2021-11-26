@@ -1,4 +1,4 @@
-import type { OmniBaseField } from '@sotaoi/omni/omni-base-field';
+import type { OmniBaseField } from '@sotaoi/omni/input/omni-base-field';
 
 abstract class BaseInput<InputType, FieldValueType> {
   abstract input(field: typeof OmniBaseField): {
@@ -9,7 +9,7 @@ abstract class BaseInput<InputType, FieldValueType> {
   abstract isEmpty(): boolean;
   abstract serialize(forStorage: boolean): null | string | Blob | (string | Blob)[];
   abstract convert(
-    value: BaseInput<InputType, FieldValueType> | InputType | FieldValueType,
+    value: BaseInput<InputType, FieldValueType> | InputType | FieldValueType
   ): BaseInput<InputType, FieldValueType>;
   abstract deserializeCondition(fieldPayload: any, payloadJson: { [key: string]: any }): boolean;
   abstract deserialize(value: any): BaseInput<InputType, FieldValueType>;

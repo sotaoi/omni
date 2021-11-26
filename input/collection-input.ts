@@ -1,4 +1,4 @@
-import type { OmniBaseField } from '@sotaoi/omni/omni-base-field';
+import type { OmniBaseField } from '@sotaoi/omni/input/omni-base-field';
 import { BaseInput } from '@sotaoi/omni/input/base-input';
 
 interface CollectionInputType {

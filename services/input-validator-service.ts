@@ -13,7 +13,7 @@ import type { DatabaseConnection } from '@sotaoi/omni/definitions/mdriver';
 import { InputValidator } from '@sotaoi/omni/contracts/input-validator-contract';
 import { Helper } from '@sotaoi/omni/helper';
 import _ from 'lodash';
-import { OmniBaseField } from '@sotaoi/omni/omni-base-field';
+import { OmniBaseField } from '@sotaoi/omni/input/omni-base-field';
 import { FileInput } from '@sotaoi/omni/input/file-input';
 import { StringInput } from '@sotaoi/omni/input/string-input';
 import { MultiFileInput } from '@sotaoi/omni/input/multi-file-input';
@@ -28,7 +28,7 @@ class InputValidatorService extends InputValidator {
   constructor(
     config: InputValidatorConfig,
     mdb: () => null | ((repository: string) => DatabaseConnection.QueryBuilder),
-    requester: null | RequesterFn,
+    requester: null | RequesterFn
   ) {
     config.t = config.t || ((key: string, ...args: any[]): string => key);
     config.messages = {
@@ -58,7 +58,7 @@ class InputValidatorService extends InputValidator {
         getInput,
       },
       this.mdb,
-      this.requester,
+      this.requester
     );
   }
 
@@ -138,7 +138,7 @@ class InputValidatorService extends InputValidator {
     payload: { [key: string]: any },
     form: FormValidations,
     tlPrefix: string,
-    isUpdateCommand: boolean,
+    isUpdateCommand: boolean
   ): Promise<void> {
     // await this.validateCollections(payload, form, tlPrefix);
     await Helper.iterateAsync(Helper.clone(form), tlPrefix, async (item, prefix, transformer, prop) => {
@@ -187,7 +187,7 @@ class InputValidatorService extends InputValidator {
   public async validateCollections(
     payload: { [key: string]: any },
     form: FormValidations,
-    tlPrefix: string,
+    tlPrefix: string
   ): Promise<void> {
     await Helper.iterateAsync(Helper.clone(form), tlPrefix, async (item, prefix, transformer, prop) => {
       prefix = prefix ? `${prefix}.` : '';
@@ -202,7 +202,7 @@ class InputValidatorService extends InputValidator {
 
         if (collectionPayload.fields instanceof Array && collectionPayload.type === 'collection') {
           this.errorMessages[`${key}.size`] = await this.validateCollection(
-            CollectionInput.deserialize(collectionPayload),
+            CollectionInput.deserialize(collectionPayload)
           );
           await collectionPayload.fields.map(async (field: any, index: number) => {
             nextKey = `${key}.fields.${index.toString()}`;
@@ -247,7 +247,7 @@ class InputValidatorService extends InputValidator {
       return;
     }
     return this.t(
-      this.messages.required.isRequired || InputValidatorService.DEFALUT_ERROR_MSG.replace('%s', 'required'),
+      this.messages.required.isRequired || InputValidatorService.DEFALUT_ERROR_MSG.replace('%s', 'required')
     );
   }
 

@@ -1,6 +1,15 @@
 const _ = require('lodash');
 
 class Helper {
+  static isConsole() {
+    return !!(
+      typeof process === 'object' &&
+      typeof process.versions === 'object' &&
+      typeof process.versions.node !== 'undefined' &&
+      typeof process.env === 'object'
+    );
+  }
+
   static initialBundleJson() {
     return {
       installed: false,
@@ -33,7 +42,7 @@ class Helper {
       k.split('.').reduce(
         (acc, e, i, keys) =>
           acc[e] || (acc[e] = isNaN(Number(keys[i + 1])) ? (keys.length - 1 === i ? obj[k] : {}) : []),
-        res,
+        res
       );
       return res;
     }, {});
@@ -64,14 +73,14 @@ class Helper {
       str
         .replace(/\\["\\\/bfnrtu]/g, '@')
         .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
-        .replace(/(?:^|:|,)(?:\s*\[)+/g, ''),
+        .replace(/(?:^|:|,)(?:\s*\[)+/g, '')
     );
   }
 
   static camelizeKebab(str) {
     let arr = str.split('-');
     let capital = arr.map((item, index) =>
-      index ? item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() : item.toLowerCase(),
+      index ? item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() : item.toLowerCase()
     );
     let camelString = capital.join('');
     return camelString;

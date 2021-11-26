@@ -1,4 +1,4 @@
-import type { OmniBaseField } from '@sotaoi/omni/omni-base-field';
+import type { OmniBaseField } from '@sotaoi/omni/input/omni-base-field';
 import type { FileInput } from '@sotaoi/omni/input/file-input';
 import { BaseInput } from '@sotaoi/omni/input/base-input';
 
@@ -81,8 +81,8 @@ class MultiFileInput extends BaseInput<FileInput[], MultiFileFieldType> {
             fileInput.value.file.name,
             null,
             URL.createObjectURL(fileInput.value.file),
-            fileInput.value.file,
-          ),
+            fileInput.value.file
+          )
         );
       });
       return multiFileInput;
